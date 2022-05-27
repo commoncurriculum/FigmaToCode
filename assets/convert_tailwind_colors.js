@@ -370,9 +370,29 @@ const tailwind_colors = {
   },
 };
 
+const cc_colors = {
+  "cc-teal": {
+    tint: "#9ef5f2",
+    base: "#03bfbc",
+    50: "#e7f3f3",
+    100: "#cce5e5",
+    200: "#b4d9d9",
+    300: "#99cccb",
+    400: "#82bfbe",
+    500: "#68b1b0",
+    600: "#4ea6a5",
+    700: "#369b99",
+    800: "#1c8d8b",
+    900: "#027e7c",
+  },
+  "cc-red": {
+    200: "#fcdad3",
+  },
+};
+
 // Step #2: Transform that into an array (Array(2), Array(2), ...);
 // Example: ["fuchsia", {…}] where {…} is {50: "#fdf4ff", ...}
-const colorsArr = Object.entries(tailwind_colors);
+const colorsArr = Object.entries({ ...tailwind_colors, ...cc_colors });
 
 // Step #3: Transform into (Array(10), Array(10), ...) while reverting key-value;
 // Example: {#fdf4ff: "fuchsia-50"}
