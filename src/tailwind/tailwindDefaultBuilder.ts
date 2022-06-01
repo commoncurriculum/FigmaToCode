@@ -150,7 +150,7 @@ export class TailwindDefaultBuilder {
       // when textAutoResize is NONE or WIDTH_AND_HEIGHT, it has a defined width.
       if (node.type !== "TEXT" || node.textAutoResize !== "WIDTH_AND_HEIGHT") {
         if (node.width > 384) {
-          this.style += htmlWidth;
+          // this.style += htmlWidth;
         } else {
           this.attributes += tailwindWidth;
         }
@@ -161,7 +161,7 @@ export class TailwindDefaultBuilder {
       // when textAutoResize is NONE has a defined height.
       if (node.type !== "TEXT" || node.textAutoResize === "NONE") {
         if (node.width > 384) {
-          this.style += htmlHeight;
+          // this.style += htmlHeight;
         } else {
           this.attributes += tailwindHeight;
         }
