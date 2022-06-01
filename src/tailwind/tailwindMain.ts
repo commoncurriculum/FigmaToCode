@@ -223,12 +223,19 @@ export const tailwindContainer = (
       src = ` src="https://via.placeholder.com/${node.width}x${node.height}"`;
     }
 
+    let comment = ``;
+    if (node.name?.match(new RegExp("^Frame")) === null) {
+      comment = `\n\n<!-- ${node.name} -->`;
+    }
+
     if (children) {
-      return `\n<${tag}${build}${src}>${indentString(children)}\n</${tag}>`;
+      return (
+        comment + `\n<${tag}${build}${src}>${indentString(children)}\n</${tag}>`
+      );
     } else if (selfClosingTags.includes(tag) || isJsx) {
-      return `\n<${tag}${build}${src} />`;
+      return comment + `\n<${tag}${build}${src} />`;
     } else {
-      return `\n<${tag}${build}${src}></${tag}>`;
+      return comment + `\n<${tag}${build}${src}></${tag}>`;
     }
   }
 
