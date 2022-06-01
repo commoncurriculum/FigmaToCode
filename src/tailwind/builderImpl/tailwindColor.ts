@@ -415,6 +415,92 @@ export const tailwindColors: Record<string, string> = {
   "#b91c1c": "red-700",
   "#991b1b": "red-800",
   "#7f1d1d": "red-900",
+  "#fafaf9": "warmGray-50",
+  "#f5f5f4": "warmGray-100",
+  "#e7e5e4": "warmGray-200",
+  "#d6d3d1": "warmGray-300",
+  "#a8a29e": "warmGray-400",
+  "#78716c": "warmGray-500",
+  "#57534e": "warmGray-600",
+  "#44403c": "warmGray-700",
+  "#292524": "warmGray-800",
+  "#1c1917": "warmGray-900",
+  "#fafafa": "gray-50",
+  "#f5f5f5": "trueGray-100",
+  "#e5e5e5": "trueGray-200",
+  "#d4d4d4": "trueGray-300",
+  "#a3a3a3": "trueGray-400",
+  "#737373": "trueGray-500",
+  "#525252": "trueGray-600",
+  "#404040": "trueGray-700",
+  "#262626": "trueGray-800",
+  "#171717": "trueGray-900",
+  "#f4f4f5": "gray-100",
+  "#e4e4e7": "gray-200",
+  "#d4d4d8": "gray-300",
+  "#a1a1aa": "gray-400",
+  "#71717a": "gray-500",
+  "#52525b": "gray-600",
+  "#3f3f46": "gray-700",
+  "#27272a": "gray-800",
+  "#18181b": "gray-900",
+  "#f9fafb": "coolGray-50",
+  "#f3f4f6": "coolGray-100",
+  "#e5e7eb": "coolGray-200",
+  "#d1d5db": "coolGray-300",
+  "#9ca3af": "coolGray-400",
+  "#6b7280": "coolGray-500",
+  "#4b5563": "coolGray-600",
+  "#374151": "coolGray-700",
+  "#1f2937": "coolGray-800",
+  "#111827": "coolGray-900",
+  "#f8fafc": "blueGray-50",
+  "#f1f5f9": "blueGray-100",
+  "#e2e8f0": "blueGray-200",
+  "#cbd5e1": "blueGray-300",
+  "#94a3b8": "blueGray-400",
+  "#64748b": "blueGray-500",
+  "#475569": "blueGray-600",
+  "#334155": "blueGray-700",
+  "#1e293b": "blueGray-800",
+  "#0f172a": "blueGray-900",
+};
+
+export const ccColors: Record<string, string> = {
+  "#f5826f": "warningRed",
+  "#00bfbc": "ocean",
+  "#9df5f2": "ocean-light",
+  "#047f7d": "ocean-dark",
+  "#dbefee": "ocean-neutral",
+  "#e6f3f2": "stormyOcean-50",
+  "#cde5e5": "stormyOcean-100",
+  "#b3d8d8": "stormyOcean-200",
+  "#9bcccb": "stormyOcean-300",
+  "#81bfbe": "stormyOcean-400",
+  "#68b2b1": "stormyOcean-500",
+  "#4fa5a3": "stormyOcean-600",
+  "#369997": "stormyOcean-700",
+  "#1e8c8a": "stormyOcean-800",
+  "#00e1a2": "spring",
+  "#9ff8d8": "spring-light",
+  "#02835c": "spring-dark",
+  "#e1eee8": "spring-neutral",
+  "#ff7fa8": "bubblegum",
+  "#ffddeb": "bubblegum-light",
+  "#ca3b72": "bubblegum-dark",
+  "#f9e7eb": "bubblegum-neutral",
+  "#f7d12f": "dandelion",
+  "#fbe697": "dandelion-light",
+  "#877001": "dandelion-dark",
+  "#f5ead2": "dandelion-neutral",
+  "#ff7b68": "sunset",
+  "#fedfd9": "sunset-light",
+  "#cc4135": "sunset-dark",
+  "#fae7e4": "sunset-neutral",
+  "#daa0de": "lavender",
+  "#fedbff": "lavender-light",
+  "#9f57a5": "lavender-dark",
+  "#f7e6f8": "lavender-neutral",
   "#f9fafb": "gray-50",
   "#f3f4f6": "gray-100",
   "#e5e7eb": "gray-200",
@@ -427,9 +513,7 @@ export const tailwindColors: Record<string, string> = {
   "#111827": "gray-900",
 };
 
-export const tailwindNearestColor = nearestColorFrom(
-  Object.keys(tailwindColors)
-);
+export const tailwindNearestColor = nearestColorFrom(Object.keys(ccColors));
 
 // figma uses r,g,b in [0, 1], while nearestColor uses it in [0, 255]
 export const getTailwindFromFigmaRGB = (color: RGB): string => {
@@ -439,9 +523,9 @@ export const getTailwindFromFigmaRGB = (color: RGB): string => {
     b: color.b * 255,
   };
 
-  return tailwindColors[tailwindNearestColor(colorMultiplied)];
+  return ccColors[tailwindNearestColor(colorMultiplied)];
 };
 
 export const getTailwindColor = (color: string | RGB): string => {
-  return tailwindColors[tailwindNearestColor(color)];
+  return ccColors[tailwindNearestColor(color)];
 };
